@@ -25,13 +25,13 @@ def check_position(i, j, lines, gear):
 
 def check_neighbours(i, j, lines, gear):
     return check_position(i-1, j, lines, gear) or \
-            check_position(i+1, j, lines, gear) or \
-            check_position(i, j-1, lines, gear) or \
-            check_position(i, j+1, lines, gear) or \
-            check_position(i-1, j-1, lines, gear) or \
-            check_position(i-1, j+1, lines, gear) or \
-            check_position(i+1, j-1, lines, gear) or \
-            check_position(i+1, j+1, lines, gear)
+        check_position(i+1, j, lines, gear) or \
+        check_position(i, j-1, lines, gear) or \
+        check_position(i, j+1, lines, gear) or \
+        check_position(i-1, j-1, lines, gear) or \
+        check_position(i-1, j+1, lines, gear) or \
+        check_position(i+1, j-1, lines, gear) or \
+        check_position(i+1, j+1, lines, gear)
 
 sum=0
 for i in range(len(lines)):

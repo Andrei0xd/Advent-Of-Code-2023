@@ -9,7 +9,6 @@ game1 = {
     "B": 14,    
 }
 
-
 ids_sum = 0
 min_mult = 0
 for line in lines:
