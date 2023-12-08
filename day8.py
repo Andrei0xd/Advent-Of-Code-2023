@@ -42,21 +42,17 @@ def check_done():
                 return False
     return True
 
-end_distances = {}
+end_distances = {sn:{} for sn in start_nodes}
 i = 0
 walking_nodes = start_nodes.copy()
 while not check_done():
     walk_dir = 1 if instructions[i%len(instructions)] == "R" else 0
     next_nodes = []
     for index, walking_node in enumerate(walking_nodes):
-        next_node = nodes[walking_node][walk_dir]
-        if next_node in end_nodes:
-            started_from = start_nodes[index]
-            if not end_distances.get(started_from):
-                end_distances[started_from] = {}
-            if not end_distances[started_from].get(next_node):
-                end_distances[started_from][next_node] = i+1
-        next_nodes.append(next_node)
+        if nodes[walking_node][walk_dir] in end_nodes:
+            if nodes[walking_node][walk_dir] not in end_distances[start_nodes[index]]:
+                end_distances[start_nodes[index]][nodes[walking_node][walk_dir]] = i+1
+        next_nodes.append(nodes[walking_node][walk_dir])
     walking_nodes = next_nodes
     i += 1
 
